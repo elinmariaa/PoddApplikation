@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36705.20 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoddApplikation.UI", "PoddApplikation.UI\PoddApplikation.UI.csproj", "{F17A3BE8-D170-4CB6-91FB-FC3C1AFE94D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "PoddApplikation.UI\Presentation.csproj", "{F17A3BE8-D170-4CB6-91FB-FC3C1AFE94D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{73E04684-A67C-4AEE-8597-AB263837C156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{16E9694B-7C02-495B-99A8-72803F82047D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{32D1CA46-82E6-4C74-B92A-180D5CED5E2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{F17A3BE8-D170-4CB6-91FB-FC3C1AFE94D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F17A3BE8-D170-4CB6-91FB-FC3C1AFE94D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F17A3BE8-D170-4CB6-91FB-FC3C1AFE94D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E04684-A67C-4AEE-8597-AB263837C156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E04684-A67C-4AEE-8597-AB263837C156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E04684-A67C-4AEE-8597-AB263837C156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E04684-A67C-4AEE-8597-AB263837C156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E9694B-7C02-495B-99A8-72803F82047D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E9694B-7C02-495B-99A8-72803F82047D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E9694B-7C02-495B-99A8-72803F82047D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E9694B-7C02-495B-99A8-72803F82047D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D1CA46-82E6-4C74-B92A-180D5CED5E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D1CA46-82E6-4C74-B92A-180D5CED5E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D1CA46-82E6-4C74-B92A-180D5CED5E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D1CA46-82E6-4C74-B92A-180D5CED5E2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
