@@ -36,15 +36,73 @@ namespace DAL
                 throw new RssHämtningMisslyckades("Kunde inte hämta RSS-flödet från internet.");
             }
 
+            //här konverterar vi RSS-texten till ett XML-objekt
+            XDocument xml;
+
+            try
+            {
+                //Försöker omvandla texten vi hämtat till ett XML-dokument
+                xml = XDocument.Parse(xmlText);
+            }
+
+            catch
+            {
+                //Om texten inte gick att läsa som XML, så är RSS:en trasig
+                throw new RssHämtningMisslyckades("Rss-flödet innehåller ogiltig XML");
+            }
+
+            //Nu när vi har XML-dokumentet i variabeln xml, ska vi leta efter channeldelen i dokumentet
+            var channel = xml.Root?.Element("channel");
+
+            if (channel==null)
+            {
+                //Om channel saknas är RSS-flödet defekt.
+                throw new RssHämtningMisslyckades("Kunde inte hitta 'channel' i RSS-flödet");
+
+            }
+
+            //Hämtar poddens titel (kan vara null om RSS-flödet saknar title)
+
+            string? titel = channel.Element("title")?.Value;
+
+            //Hämtar poddens beskrivning (kan också vara null)
+            string? beskrivning = channel.Element("description")?.Value;
 
 
+            //Hittar alla avsnitt (<item>)  och skapar Avsnitt-objekt
+            var items = channel.Elements("item");
+
+            //skapar en tom lista där vi ska lägga alla avsnitt
+            var avsnittLista = new List<Avsnitt>();
+
+            foreach (var item in items)
+
+            {
+                var avsnitt = new Avsnitt
+                {
+                    Titel = item.Element("title")?.Value,
+
+                    Beskrivning = item.Element("description")?.Value,
+
+                    PubliceringsDatum = DateTime.TryParse(item.Element("pubDate")?.Value, out var d)
+                    ? d : null
+                };
+
+                avsnittLista.Add(avsnitt);
+            }
+
+            //Skapar en podd med all information från RSS-flödet
+            var podd = new Podd
+            {
+                OriginalTitel = titel,
+                Beskrivning = beskrivning,
+                RssURL = rssUrl,
+                Avsnitt = avsnittLista
+            };
+
+            return podd; //Returnerar podden till businesslagret
 
 
-
-
-
-
-            throw new NotImplementedException();
         }
     }
 }
