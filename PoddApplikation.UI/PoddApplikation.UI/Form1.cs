@@ -44,7 +44,7 @@ namespace PoddApplikation.UI
             // 
             // Form1
             // 
-            ClientSize = new Size(1579, 915);
+            ClientSize = new Size(1262, 915);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
