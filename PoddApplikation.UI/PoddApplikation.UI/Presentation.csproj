@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data\DAL.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
     <Compile Update="Form1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

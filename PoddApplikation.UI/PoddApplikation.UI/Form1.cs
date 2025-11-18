@@ -7,6 +7,7 @@ namespace PoddApplikation.UI
             InitializeComponent();
         }
 
+        
         private void InitializeComponent()
         {
             button1 = new Button();
