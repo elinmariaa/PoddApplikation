@@ -75,20 +75,20 @@ namespace DAL
             //skapar en tom lista där vi ska lägga alla avsnitt
             var avsnittLista = new List<Avsnitt>();
 
-            foreach (var item in items)
+            foreach (var item in items) // Gå igenom varje <item> i RSS, en i taget och kalla den för item
 
             {
-                var avsnitt = new Avsnitt
+                var avsnitt = new Avsnitt // skapar ett nytt avsnitt i c#
                 {
-                    Titel = item.Element("title")?.Value,
+                    Titel = item.Element("title")?.Value,//"Hämta texten som står i <title> inne i <item>
 
                     Beskrivning = item.Element("description")?.Value,
 
                     PubliceringsDatum = DateTime.TryParse(item.Element("pubDate")?.Value, out var d)
-                    ? d : null
+                    ? d : null //En kort if sats - om TryParse lyckas = publiceringsdatum = d // Misslyckas = pubDate = null
                 };
 
-                avsnittLista.Add(avsnitt);
+                avsnittLista.Add(avsnitt); // läägg till avsnittet i listan
             }
 
             //Skapar en podd med all information från RSS-flödet
